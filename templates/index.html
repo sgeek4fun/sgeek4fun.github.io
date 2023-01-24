@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="blog">
+    <div class="container">
+        <section class="container" id="container">
+            <div class="site-content">
+                <div class="posts">
+                    {% for post in posts %}
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <a href={{"/post/" + post.slug}}><img src="{{url_for('static', filename='/assets/Blog-Post-Main/')}}{{post.image_name}}.jpg" class="img" alt="{{post.image_name}}"></a>
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author}}</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.date_posted.strftime('%B %d, %Y')}}</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href={{"/post/" + post.slug}}>{{post.title}}</a>
+                            <p>
+                                {{post.subtitle}}
+                            </p>
+                            <a href={{"/post/" + post.slug}}>
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    <div class="pagination flex-row">
+                        <a href="#"><i class="fas fa-chevron-left"></i></a>
+                        <a href="#" class="pages">1</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block headlines%}
+
+{% endblock %}
+

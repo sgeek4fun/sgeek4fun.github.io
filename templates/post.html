@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block headlines %}
+<section class="site-title">
+    <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+        <img src="{{url_for('static', filename='/assets/Blog-Post-Main/')}}{{post.image_name}}.jpg">
+    </div>
+</section>
+{% endblock %}
+{% block content %}
+<article class="mb-4">
+    <div class="container-2 px-4 px-lg-5">
+        <div class="post-container">
+            <h1>{{post.title}}</h1>
+            <h4>{{post.subtitle}}</h4>
+        </div>
+        <div class="content-12">
+            <p>{{post.content | safe}}</p>
+            <span class="meta">Posted by</span><b> {{post.author}}</b> on <b>{{post.date_posted.strftime('%B %d, %Y')}}</b></span>
+        </div>
+    </div>
+</article>
+{% endblock %}
+
