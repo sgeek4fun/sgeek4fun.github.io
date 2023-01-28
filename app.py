@@ -11,7 +11,7 @@ from flask_admin.contrib.fileadmin import FileAdmin
 import random
 import base64
 import sqlalchemy
-from config import mail_username, mail_password, admin_login_password, admin_login_username, recipients_email
+from config import mail_username, mail_password, admin_login_username, admin_login_password, recipients_email
 
 basedir= os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
