@@ -11,7 +11,7 @@ from flask_admin.contrib.fileadmin import FileAdmin
 import random
 import base64
 import sqlalchemy
-from config import mail_username, mail_password
+from config import mail_username, mail_password, admin_login_password, admin_login_username, recipients_email
 
 basedir= os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -74,7 +74,7 @@ def post(slug):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        if request.form.get("username") == "ahmedadil03811" and request.form.get("pass") == "03811@Adil":
+        if request.form.get("username") == admin_login_username and request.form.get("pass") == admin_login_password:
             session['logged_in'] = True
             return redirect("/admin")
         else:
@@ -94,7 +94,7 @@ def contact():
         email = request.form.get('email')
         message = request.form.get('message')
 
-        msg = Message(subject=f"Mail from {name}", body=f"Name: {name}\nE-mail: {email}\n{message}\n\n\n", sender=mail_username, recipients=['ahmedaahk865@gmail.com'])
+        msg = Message(subject=f"Mail from {name}", body=f"Name: {name}\nE-mail: {email}\n{message}\n\n\n", sender=mail_username, recipients=[recipients_email])
         mail.send(msg)
         return render_template("contact.html", success=True)
     return render_template("contact.html")
