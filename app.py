@@ -53,9 +53,8 @@ class SecureModelView(ModelView):
 
 
 admin.add_view(SecureModelView(Posts, db.session))
-path = os.path.dirname(__file__)
-admin.add_view(FileAdmin(path, '/files/', name='Files'))
-
+path = os.path.join(os.path.dirname(__file__), 'static')
+admin.add_view(FileAdmin(path, '/static/', name='Static Files'))
 
 @app.route("/")
 def index():
