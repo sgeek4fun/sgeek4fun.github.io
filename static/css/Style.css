@@ -329,6 +329,7 @@ main .site-content .post-content > .post-image .img:hover{
 
 main .site-content .post-content > .post-image .post-info span{
     margin: 0 .5rem;
+    font-size: 8px;
 }
 
 main .post-content .post-title a{
@@ -514,6 +515,131 @@ footer.footer .move-up span:hover{
 }
 
 
-/* ---------x------- Footer ----------x---------- */
-
 /*              Viewport less then or equal to 1130px            */
+
+
+
+
+
+
+
+
+
+
+
+
+/*      x       Viewport less then or equal to 1130px    x     */
+
+
+/*     x  Landscape mode  x      */
+@media only screen and (width:640px) and (height:360px){
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+
+
+}
+@media only screen and (max-width: 733px) and (max-height:412.5px){
+
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+ 
+
+
+}
+@media only screen and (max-width: 824px) and (max-height:411.5px){
+
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+
+
+}
+@media only screen and (width: 736px) and (height:414px){
+
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+
+}
+@media only screen and (width: 720px) and (height:1114px){
+
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+    
+}
+@media only screen and (max-width: 658px) and (max-height:284px){
+
+    
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+
+}
+
+
+
+/*     x  Landscape mode  x      */
+
+/*              Viewport less then or equal to 750px            */
+
+@media only screen and (max-width: 750px){
+
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;
+    }
+
+
+}
+
+
+/*        x      Viewport less then or equal to 750px       x     */
+
+
+/*              Viewport less then or equal to 520px            */
+
+@media only screen and (max-width: 520px){
+
+
+    .site-content .post-content > .post-image .post-info{
+        display: none;
+    }
+
+
+    nav .toggle-collapse{
+        width: 80% !important;
+    }
+
+}
+
+/*        x      Viewport less then or equal to 520px       x     */
