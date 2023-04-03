@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
-
 {% block content %}
+{% for post in posts %}
 <div class="blog">
     <div class="container">
         <section class="container" id="container">
             <div class="site-content">
                 <div class="posts">
-                    {% for post in posts %}
                     <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
                         <div class="post-image">
                             <div>
@@ -27,19 +26,14 @@
                         </div>
                     </div>
                     <hr>
-                    {% endfor %}
-                    <div class="pagination flex-row">
-                        <a href="{{ url_for('all_posts', num_posts=40) }}">See All Posts</a>
-                    </div>
                 </div>
             </div>
         </section>
     </div>
 </div>
+{% endfor %}
 {% endblock %}
-
 
 {% block headlines%}
 
 {% endblock %}
-

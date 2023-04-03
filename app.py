@@ -57,10 +57,12 @@ admin.add_view(SecureModelView(Posts, db.session, endpoint='posts'))
 path = os.path.dirname(__file__)
 admin.add_view(FileAdmin(path, '/files/', name='Files'))
 
+
 @app.route("/")
 def index():
-    posts = Posts.query.all()
+    posts = Posts.query.order_by(Posts.date_posted.desc()).limit(10).all()
     return render_template('index.html', posts=posts)
+
 
 
 @app.route("/post/<string:slug>")
@@ -98,6 +100,11 @@ def contact():
         mail.send(msg)
         return render_template("contact.html", success=True)
     return render_template("contact.html")
+
+@app.route("/all-posts/<int:num_posts>")
+def all_posts(num_posts):
+    posts = Posts.query.order_by(Posts.date_posted.desc()).limit(num_posts).all()
+    return render_template('all_posts.html', posts=posts)
 
 @app.teardown_request
 def shutdown_session(exception=None):
