@@ -25,6 +25,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = mail_username
 app.config['MAIL_PASSWORD'] = mail_password
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = False
 
 
 
@@ -52,7 +53,7 @@ class SecureModelView(ModelView):
             abort(403)
 
 
-admin.add_view(SecureModelView(Posts, db.session))
+admin.add_view(SecureModelView(Posts, db.session, endpoint='posts'))
 path = os.path.dirname(__file__)
 admin.add_view(FileAdmin(path, '/files/', name='Files'))
 
@@ -97,6 +98,11 @@ def contact():
         mail.send(msg)
         return render_template("contact.html", success=True)
     return render_template("contact.html")
+
+@app.teardown_request
+def shutdown_session(exception=None):
+    db.session.commit()
+    db.session.remove()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
